@@ -17,8 +17,8 @@ public class StringCalculator {
     private int calculate(final Seperator seperator) {
         return Arrays.stream(seperator.getTargetNumber()
             .split(seperator.getDelimiter()))
-            .map(PositiveNumber::new)
-            .reduce(new PositiveNumber(ZERO), PositiveNumber::sum)
+            .map(PositiveNumber::of)
+            .reduce(PositiveNumber.of(ZERO), PositiveNumber::sum)
             .getValue();
     }
 
