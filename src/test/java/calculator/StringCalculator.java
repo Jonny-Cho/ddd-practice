@@ -18,9 +18,8 @@ public class StringCalculator {
         return Arrays.stream(seperator.getTargetNumber()
             .split(seperator.getDelimiter()))
             .map(PositiveNumber::new)
-            .map(PositiveNumber::getValue)
-            .mapToInt(i -> i)
-            .sum();
+            .reduce(new PositiveNumber(ZERO), PositiveNumber::sum)
+            .getValue();
     }
 
     private boolean isBlank(final String stringNumber) {

@@ -45,4 +45,19 @@ public class PositiveNumberTest {
             .isEqualTo(positiveNumber2);
     }
 
+    @DisplayName("더할 수 있다")
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "1", "2", "100", "1000", "1050000000"})
+    void add(final String text) {
+        //given
+        final PositiveNumber positiveNumber1 = new PositiveNumber(text);
+        final PositiveNumber positiveNumber2 = new PositiveNumber(text);
+
+        //when
+        final PositiveNumber actual = PositiveNumber.sum(positiveNumber1, positiveNumber2);
+
+        //then
+        assertThat(actual.getValue()).isEqualTo(Integer.parseInt(text) * 2);
+    }
+
 }

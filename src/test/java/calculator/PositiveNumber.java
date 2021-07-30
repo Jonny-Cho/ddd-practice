@@ -15,6 +15,15 @@ public class PositiveNumber {
         this.value = number;
     }
 
+    public PositiveNumber(final int number) {
+        checkNegativenumber(number);
+        this.value = number;
+    }
+
+    public static PositiveNumber sum(final PositiveNumber positiveNumber1, final PositiveNumber positiveNumber2) {
+        return new PositiveNumber(positiveNumber1.getValue() + positiveNumber2.getValue());
+    }
+
     private int parseToInt(final String value) {
         try {
             return Integer.parseInt(value);
@@ -49,4 +58,5 @@ public class PositiveNumber {
     public int hashCode() {
         return Objects.hash(value);
     }
+
 }
