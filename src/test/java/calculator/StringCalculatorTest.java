@@ -3,6 +3,7 @@ package calculator;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -88,6 +89,7 @@ public class StringCalculatorTest {
 
     @Test
     void whiteSpace() {
+
         assertThat(StringUtils.isEmpty(null)).isTrue();
         assertThat(StringUtils.isEmpty("")).isTrue();
         assertThat(StringUtils.isEmpty(" ")).isFalse();

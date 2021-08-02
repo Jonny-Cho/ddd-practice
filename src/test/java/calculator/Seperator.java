@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class Seperator {
 
+
     public static final String DEFAULT_DELIMITER = ",|:";
     public static final String SEPARATOR = "|";
     public static final Pattern pattern = Pattern.compile("//(.)\n(.*)");

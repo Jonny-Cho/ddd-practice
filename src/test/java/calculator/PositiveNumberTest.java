@@ -14,6 +14,7 @@ public class PositiveNumberTest {
     @ValueSource(strings = {"-1"})
     void negativeNumber(final String text) {
         assertThatThrownBy(
+
             () -> new PositiveNumber(text)
         ).isInstanceOf(RuntimeException.class);
     }
@@ -23,6 +24,7 @@ public class PositiveNumberTest {
     @ValueSource(strings = {"abc"})
     void notNumber(final String text) {
         assertThatThrownBy(
+
             () -> new PositiveNumber(text)
         ).isInstanceOf(RuntimeException.class);
     }
@@ -31,6 +33,7 @@ public class PositiveNumberTest {
     @ParameterizedTest
     @ValueSource(strings = {"0", "1", "2", "100", "1000", "2100000000"})
     void positiveNumber(final String text) {
+
         assertThat(new PositiveNumber(text).getValue())
             .isEqualTo(Integer.parseInt(text));
     }
@@ -39,6 +42,7 @@ public class PositiveNumberTest {
     @ParameterizedTest
     @ValueSource(strings = {"0", "1", "2", "100", "1000", "2100000000"})
     void equals(final String text) {
+
         final PositiveNumber positiveNumber1 = new PositiveNumber(text);
         final PositiveNumber positiveNumber2 = new PositiveNumber(text);
         assertThat(positiveNumber1)

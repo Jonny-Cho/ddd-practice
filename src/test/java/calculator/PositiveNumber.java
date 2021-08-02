@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class PositiveNumber {
 
+
     public static final int ZERO = 0;
     public static final String NEGATIVE_EXCEPTION_MESSAGE = "0 이상의 값을 넣어주세요";
     public static final String NOT_NUMBER_EXCEPTION_MESSAGE = "0 이상의 숫자를 넣어주세요";
@@ -14,6 +15,7 @@ public class PositiveNumber {
         checkNegativenumber(number);
         this.value = number;
     }
+
 
     private int parseToInt(final String value) {
         try {
