@@ -2,6 +2,7 @@ package calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 
 import org.junit.jupiter.api.DisplayName;
@@ -89,14 +90,15 @@ public class StringCalculatorTest {
 
     @Test
     void whiteSpace() {
+        assertAll(
+            () -> assertThat(StringUtils.isEmpty(null)).isTrue(),
+            () -> assertThat(StringUtils.isEmpty("")).isTrue(),
+            () -> assertThat(StringUtils.isEmpty(" ")).isFalse(),
 
-        assertThat(StringUtils.isEmpty(null)).isTrue();
-        assertThat(StringUtils.isEmpty("")).isTrue();
-        assertThat(StringUtils.isEmpty(" ")).isFalse();
-
-        assertThat(org.springframework.util.StringUtils.hasText(null)).isFalse();
-        assertThat(org.springframework.util.StringUtils.hasText("")).isFalse();
-        assertThat(org.springframework.util.StringUtils.hasText(" ")).isFalse();
+            () -> assertThat(org.springframework.util.StringUtils.hasText(null)).isFalse(),
+            () -> assertThat(org.springframework.util.StringUtils.hasText("")).isFalse(),
+            () -> assertThat(org.springframework.util.StringUtils.hasText(" ")).isFalse()
+        );
     }
 
 }
