@@ -4,6 +4,7 @@ import static kitchenpos.application.fixture.OrderLineItemFixture.HIDED_MENU_ORD
 import static kitchenpos.application.fixture.OrderLineItemFixture.NEGATIVE_QUANTITY_ORDER_LINE_ITEMS;
 import static kitchenpos.application.fixture.OrderLineItemFixture.ORDER_LINE_ITEMS;
 import static kitchenpos.application.fixture.OrderLineItemFixture.WRONG_PRICE_MENU_ORDER_LINE_ITEMS;
+import static kitchenpos.application.fixture.OrderTableFixture.NOT_EMPTY_TABLE;
 import static kitchenpos.application.fixture.OrderTableFixture.ORDER_TABLE1;
 
 import java.util.Arrays;
@@ -19,7 +20,7 @@ import kitchenpos.domain.OrderType;
 public class OrderFixture {
 
     public static Order ORDER_WITH_TYPE_AND_STATUS_REQUEST(final OrderType type, final OrderStatus orderStatus) {
-        return createOrder(null, type, ORDER_TABLE1().getId(), ORDER_TABLE1(), ORDER_LINE_ITEMS(), orderStatus);
+        return createOrder(null, type, NOT_EMPTY_TABLE().getId(), NOT_EMPTY_TABLE(), ORDER_LINE_ITEMS(), orderStatus);
     }
 
     public static Order NULL_TYPE_ORDER_REQUEST() {
@@ -68,6 +69,10 @@ public class OrderFixture {
 
     public static Order ORDER_WITH_TYPE_AND_STATUS(final OrderType type, final OrderStatus orderStatus) {
         return createOrder(UUID.randomUUID(), type, ORDER_TABLE1().getId(), ORDER_TABLE1(), ORDER_LINE_ITEMS(), orderStatus);
+    }
+
+    public static Order ORDER_WITH_TYPE_AND_STATUS_AND_TABLE(final OrderType type, final OrderStatus orderStatus, final OrderTable table) {
+        return createOrder(UUID.randomUUID(), type, table.getId(), table, ORDER_LINE_ITEMS(), orderStatus);
     }
 
     public static List<Order> ORDERS() {
